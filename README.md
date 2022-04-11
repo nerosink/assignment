@@ -17,3 +17,7 @@
  
  azure VM ip : http://20.117.148.31:8080/enterprise 
  credentials sent seperately
+
+  to run locally can use below ( Required  Java and Maven )
+ 
+ ``` mvn clean spring-boot:run ```
