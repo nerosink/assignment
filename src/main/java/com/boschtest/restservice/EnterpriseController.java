@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Random;
 
 import com.boschtest.dao.EnterpriseRepo;
 import com.boschtest.model.Enterprise;
@@ -81,12 +82,19 @@ public class EnterpriseController {
         if (e == null ) {
             return new ResponseEntity<String>("{\"ERROR\" : \"not found\"}", HttpStatus.NOT_FOUND);
         }
-        else if (e.getHealth()) {
-            return new ResponseEntity<String>("{\"HEALTHY\" : \"TRUE\"}", HttpStatus.OK);
-        }
         else  {
-            return new ResponseEntity<String>("{\"HEALTHY\" : \"FALSE\"}", HttpStatus.OK);
+            Random rd = new Random();
+            e.setHealth(rd.nextBoolean());
+            repo.save(e);
+            if (rd == TRUE) {
+                return new ResponseEntity<String>("{\"HEALTHY\" : \"TRUE\"}", HttpStatus.OK);
+            }
+            else {
+                return new ResponseEntity<String>("{\"HEALTHY\" : \"FALSE\"}", HttpStatus.OK);    
+            }
         }
+    }
+
     }
 
 }
