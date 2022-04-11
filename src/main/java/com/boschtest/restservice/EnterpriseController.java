@@ -86,15 +86,13 @@ public class EnterpriseController {
             Random rd = new Random();
             e.setHealth(rd.nextBoolean());
             repo.save(e);
-            if (rd == TRUE) {
+            if (e.getHealth()) {
                 return new ResponseEntity<String>("{\"HEALTHY\" : \"TRUE\"}", HttpStatus.OK);
             }
             else {
                 return new ResponseEntity<String>("{\"HEALTHY\" : \"FALSE\"}", HttpStatus.OK);    
             }
         }
-    }
-
     }
 
 }
