@@ -14,6 +14,6 @@
  open enterprise_openapi.json in https://editor.swagger.io/ to generate commands
  
  activity diagram in diagram.PNG
-  
-
-
+ 
+ azure VM ip : http://20.117.148.31:8080/enterprise 
+ credentials sent seperately
