@@ -9,7 +9,7 @@
   
  send POST to create for enterprise  \
  send DELETE to delete for enterprise \
- send PUT to update for enterpise \
+ send PUT to update for enterpise 
   
  open enterprise_openapi.json in https://editor.swagger.io/ to generate commands
  
