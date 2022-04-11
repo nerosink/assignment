@@ -3,11 +3,11 @@
  generate and save random health state  each time health check is triggered to simulate the real enterprise
  
  
- healthcheck url is http://<server URL>:8080/healthcheck?eid=<EID>
+ healthcheck url is http://<server URL>:8080/healthcheck?eid=EID
  eg.  http://localhost:8080/healthcheck?eid=104
   
   
- send POST to create for /enterprise
+ send POST to create for /enterprise 
  send DELETE to delete for enterprise
  send PUT to update for enterpise
   
