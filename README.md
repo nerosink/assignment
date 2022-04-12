@@ -26,7 +26,7 @@
  
  # Delete enterprise
  
- DELETE \enterprise\{eid}
+ DELETE \enterprise\eid
  
  # Update Enterprise
  
@@ -43,20 +43,31 @@
  ```
  
  
+ # HEALTH CHECK
+ 
+ GET \healthcheck?eid=eid
+ 
+ # OPENAPI v3
   
  open enterprise_openapi.json in https://editor.swagger.io/ to generate commands
  
  activity diagram in diagram.PNG
  
+ # AZURE 
+ 
  azure VM ip : http://20.117.148.31:8080/enterprise 
  credentials sent seperately
 
+ 
+ # UNIT TEST 
+ 
  to run unit test 
  
  ```
  mvn clean test
  ```
  
+ # DEPLOYMENT
  
   to run locally can use below ( Required  Java and Maven )
  
