@@ -52,6 +52,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Random;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -63,13 +64,15 @@ public class EnterpriseControllerTests {
     @Test
     public void addNewExisting() throws Exception {
 
-        this.mockMvc.perform(MockMvcRequestBuilders.post("/enterprise").contentType(MediaType.APPLICATION_JSON).content("{ \"eid\": \"1\", \"name\": \"mock enterprise\" , \"url\" : \"https://ent1.boschtest.io\" , \"authentication\" : \"http\" , \"health\" : true }")) 
+        Random rd = new Random();
+        boolean healthstate = rd.nextBoolean();
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/enterprise").contentType(MediaType.APPLICATION_JSON).content("{ \"name\": \"mock enterprise\" , \"url\" : \"https://ent1.boschtest.io\" , \"authentication\" : \"username1/passsword1\" , \"health\" : " + String.valueOf(healthstate) + " }")) 
         .andDo(print())
         .andExpect(status().isOk());
-
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/healthcheck?eid=1"))
-    	.andDo(print()).andExpect(status().isOk())
-     	.andExpect(jsonPath("$.HEALTHY").value("TRUE"));
+       
+         this.mockMvc.perform(MockMvcRequestBuilders.get("/healthcheck?eid=1"))
+    	.andDo(print())
+        .andExpect(status().isOk());
     }
 
 }
